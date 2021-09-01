@@ -41,62 +41,22 @@
         <section class="my-4">
             <!-- Search Box -->
             <div class="d-flex">
-                <input id="searchInput" type="text" class="form-control me-2"
+                <input id="search-input" type="text" class="form-control me-2"
                     placeholder="Type Book's Name To Search" />
-                <button class="btn btn btn-dark" id="search-btn">Search</button>
+                <button class="btn btn btn-dark" onclick="loadBooks()" id="search-btn">Search</button>
             </div>
             <div id="error"></div>
             <p id="" class="text-center my-2 fw-bolder">Total Result Found: <span id="">43434</span></p>
         </section>
         <!-- Search Result  -->
-        <section class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="images/demo.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                            to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="images/demo.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                            to additional content</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="images/demo.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                            to additional content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="images/demo.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                            to additional content.</p>
-                    </div>
-                </div>
-            </div>
+        <section id="books-container" class="row row-cols-1 row-cols-md-2 g-4 mb-5">
         </section>
     </main>
-    <footer class="bg-info py-1 mt-5">
-        <p class="container text-center text-light fw-bolder mt-2">&copy; 2021 | Design & Developed By <a
+    <!--     <footer class="bg-info py-1 mt-5 fixed-bottom">
+        <p class="container text-center text-light fw-bolder mt-3">&copy; 2021 | Design & Developed By <a
                 class="text-dark fw-bolder" href="https://codermahabub.com/">CoderMahabub</a>
         </p>
-    </footer>
+    </footer> -->
     <script src="js/main.js"></script>
 </body>
 
