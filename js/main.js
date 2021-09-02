@@ -21,6 +21,7 @@ const loadBooks = () => {
 
     // Clear Previous Data
     searchInput.value = '';
+    errorDiv.innerText = '';
 }
 
 //Display Books
