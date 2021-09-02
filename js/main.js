@@ -21,16 +21,14 @@ const loadBooks = () => {
 
     // Clear Previous Data
     searchInput.value = '';
-    errorDiv.innerText = "";
 }
 
 //Display Books
 const displayBooks = (data, books) => {
-
     // Error Handing
     if (data.numFound === 0) {
         errorDiv.classList.add('d-block', 'fs-6', 'text-danger', 'mt-2', 'fw-bold');
-        errorDiv.innerText = "NO Result Found ! Please Type Carefully";
+        errorDiv.innerText = "No Result Found ! Please Type Carefully";
     } else {
 
         //Display Total Result
@@ -39,11 +37,11 @@ const displayBooks = (data, books) => {
 
         // Get Total Search Result
         document.getElementById('total-items').innerText = data.numFound;
-
         // Repeating Part of Display
         books.forEach(book => {
             const div = document.createElement('div');
             div.classList.add('col-lg-6', 'card', 'mb-2');
+            // Display Repeating part
             div.innerHTML = `
         <div class="row g-0">
         <div class="col-md-4">
