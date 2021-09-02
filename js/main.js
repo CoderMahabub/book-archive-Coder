@@ -1,4 +1,4 @@
-const div = document.createElement('div');
+// const div = document.createElement('div');
 const errorDiv = document.getElementById("error");
 const booksContainer = document.getElementById('books-container');
 
@@ -6,9 +6,10 @@ const booksContainer = document.getElementById('books-container');
 const loadBooks = () => {
     const searchInput = document.getElementById('search-input');
     const searchText = searchInput.value;
-
+    booksContainer.textContent = '';
+    //Search Text validate
     if (searchText === "") {
-        errorDiv.classList.add('d-block', 'fw-bolder', 'text-danger', 'mt-1');
+        errorDiv.classList.add('d-block', 'fw-bolder', 'text-warning', 'mt-1');
         errorDiv.innerText = "Search Field Cannot Be Empty!";
         return;
     }
@@ -18,12 +19,9 @@ const loadBooks = () => {
         .then(res => res.json())
         .then(data => displayBooks(data, data.docs));
 
-    // Clear Search Text
+    // Clear Previous Data
     searchInput.value = '';
-    //Clear Total Search Result
-    document.getElementById('total-items').innerText = '';
     errorDiv.innerText = "";
-    booksContainer.textContent = '';
 }
 
 //Display Books
@@ -31,20 +29,22 @@ const displayBooks = (data, books) => {
 
     // Error Handing
     if (data.numFound === 0) {
-        errorDiv.classList.add('d-block', 'fw-bolder', 'text-danger', 'm-1');
+        errorDiv.classList.add('d-block', 'fs-6', 'text-danger', 'mt-2', 'fw-bold');
         errorDiv.innerText = "NO Result Found ! Please Type Carefully";
     } else {
-        errorDiv.innerText = "";
-    }
 
-    // Get Total Search Result
-    document.getElementById('total-items').innerText = parseInt(data.numFound);
-    // Repeating Part of Display
-    books.forEach(book => {
+        //Display Total Result
+        errorDiv.classList.add('d-block', 'fw-bold', 'text-dark', 'mt-4', 'fs-5');
+        errorDiv.innerHTML = `<p class="py-2"><span class="fw-bolder text-info" id="total-items">0 </span> Search Results Found</p>`
 
-        const div = document.createElement('div');
-        div.classList.add('col-lg-6', 'card', 'mb-2');
-        div.innerHTML = `
+        // Get Total Search Result
+        document.getElementById('total-items').innerText = data.numFound;
+
+        // Repeating Part of Display
+        books.forEach(book => {
+            const div = document.createElement('div');
+            div.classList.add('col-lg-6', 'card', 'mb-2');
+            div.innerHTML = `
         <div class="row g-0">
         <div class="col-md-4">
             <img src="https://covers.openlibrary.org/b/id/${book?.cover_i}-M.jpg" class="img-fluid rounded-start" alt="Cover Image Not Available">
@@ -58,6 +58,7 @@ const displayBooks = (data, books) => {
             </div >
         </div >
         </div > `;
-        booksContainer.appendChild(div);
-    });
+            booksContainer.appendChild(div);
+        });
+    }
 }
