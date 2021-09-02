@@ -44,16 +44,14 @@
             <div class="d-flex">
                 <input id="search-input" type="text" class="form-control me-2 fw-light"
                     placeholder="Type Book's Name To Search" />
-                <button class="btn btn-lg btn-info text-light fw-bolder" onclick="loadBooks()"
-                    id="search-btn">Search</button>
+                <button class="btn btn-outline-info" onclick="loadBooks()" id="search-btn">Search</button>
             </div>
 
             <!-- Error Field  -->
             <div id="error"></div>
             <!-- Total Search Result  -->
-            <p id="" class="text-center my-2">Total <span class="fw-bolder" id="total-items">0</span> Search Result
-                Found
-            </p>
+            <p class="text-center rounded my-2 bg-dark text-light py-2 w-50 mx-auto"><span class="fw-bolde text-info"
+                    id="total-items">0 </span> Search Results Found </p>
         </section>
         <!-- Search Result  -->
         <section id="books-container" class="row row-cols-1 row-cols-md-2 g-4 mb-5">
